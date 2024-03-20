@@ -8,7 +8,7 @@ import { meRoutes, authRoutes } from "./routes/index.js";
 import path from "path";
 import * as fs from "fs";
 import cron from "node-cron";
-import ReseedAction from "./mongo/ReseedAction";
+import ReseedAction from "./mongo/ReseedAction.js";
 
 dotenv.config();
 
