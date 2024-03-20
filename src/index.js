@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import "./passport.js";
-import { dbConnect } from "./mongo/index.js";
+//import { dbConnect } from "./mongo/index.js";
 import { meRoutes, authRoutes } from "./routes";
 import path from "path";
 import * as fs from "fs";
