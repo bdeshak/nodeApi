@@ -8,7 +8,7 @@ import jwt from 'jsonwebtoken';
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.mailtrap.io",
+  service: "gmail",
   port: 2525,
   auth: {
     user: process.env.MAILTRAP_USER,
@@ -97,7 +97,7 @@ export const forgotPasswordRouteHandler = async (req, res, email) => {
     let token = randomToken(20);
     // send mail with defined transport object
     let info = await transporter.sendMail({
-      from: "admin@jsonapi.com", // sender address
+      from: "bdeshak5@gmail.com", // sender address
       to: email, // list of receivers
       subject: "Reset Password", // Subject line
       html: `<p>You requested to change your password.If this request was not made by you please contact us. Access <a href='${process.env.APP_URL_CLIENT}/auth/reset-password?token=${token}&email=${email}'>this link</a> to reste your password </p>`, // html body
