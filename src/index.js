@@ -34,7 +34,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json", strict: false }));
 
 app.get("/", function (req, res) {
   const __dirname = fs.realpathSync(".");
-  res.sendFile(path.join(__dirname, "./src/landing/index.html"));
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.use("/", authRoutes);
