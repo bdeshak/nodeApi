@@ -9,6 +9,41 @@ import path from "path";
 import * as fs from "fs";
 import cron from "node-cron";
 import ReseedAction from "./mongo/ReseedAction.js";
+const mongoose = require('mongoose');
+
+// MongoDB Atlas connection URI
+const uri = 'mongodb+srv://bdeshak:Mlpnkobj@cluster0.cvl8ljb.mongodb.net/?retryWrites=true&w=majority';
+
+// Mongoose connection options
+const options = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  // Add more options as needed (e.g., ssl, auth, etc.)
+};
+
+// Connect to MongoDB Atlas
+mongoose.connect(uri, options)
+  .then(() => {
+    console.log('Connected to MongoDB Atlas');
+    
+    // Once connected, you can start defining and using your mongoose models here
+    
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB Atlas:', error);
+  });
+
+// Gracefully handle process termination
+process.on('SIGINT', async () => {
+  try {
+    await mongoose.connection.close();
+    console.log('MongoDB Atlas connection closed');
+    process.exit(0);
+  } catch (err) {
+    console.error('Error closing MongoDB Atlas connection:', err);
+    process.exit(1);
+  }
+});
 
 dotenv.config();
 
