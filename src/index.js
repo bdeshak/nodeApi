@@ -9,7 +9,7 @@ import path from "path";
 import * as fs from "fs";
 import cron from "node-cron";
 import ReseedAction from "./mongo/ReseedAction.js";
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // MongoDB Atlas connection URI
 const uri = 'mongodb+srv://bdeshak:Mlpnkobj@cluster0.cvl8ljb.mongodb.net/?retryWrites=true&w=majority';
